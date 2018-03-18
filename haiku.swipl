@@ -1,0 +1,35 @@
+:- ['syllable.swipl'].
+
+haiku(Haiku):-
+    fivestanza(First),
+    sevenstanza(Second),
+    fivestanza(Third),
+    poem([First,Second,Third],Haiku).
+
+poem(Haiku,Haiku).
+
+fivestanza(Stanza):-
+    syllable(One),
+    syllable(Two),
+    syllable(Three),
+    syllable(Four),
+    syllable(Five),
+    append(One,Two,Second),
+    append(Second,Three,Third),
+    append(Third,Four,Fourth),
+    append(Fourth,Five,Stanza).
+
+sevenstanza(Stanza):-
+    syllable(One),
+    syllable(Two),
+    syllable(Three),
+    syllable(Four),
+    syllable(Five),
+    syllable(Six),
+    syllable(Seven),
+    append(One,Two,Second),
+    append(Second,Three,Third),
+    append(Third,Four,Fourth),
+    append(Fourth,Five,Fifth),
+    append(Fifth,Six,Sixth),
+    append(Sixth,Seven,Stanza).
